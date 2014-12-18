@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <title>WakeMagic</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="//cdn.jsdelivr.net/99lime/0.94/js/kickstart.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/99lime/0.94/css/kickstart.css">
+
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
 {% with messages = get_flashed_messages() %}
     {% if messages %}
-        <ul class=flashes>
+        <ul class="flashes">
             {% for message in messages %}
-                <li>{{ message }}</li>
+                <li class="notice flash">
+                    <i class="icon-warning-sign icon-large"></i>
+                    {{ message }}
+                    <a href="#close" class="icon-remove"></a>
+                </li>
             {% endfor %}
         </ul>
     {% endif %}

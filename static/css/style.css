@@ -1,0 +1,33 @@
+body {
+    font-family: 'Ubuntu', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+}
+
+.flashes {
+    list-style: none;
+    margin: 0;
+    position: absolute;
+    right: 9px; top: 9px;
+}
+
+.flash {
+    width: 350px;
+    z-index: 10;
+}
+
+.flash i {
+    margin-right: 10px;
+}
+
+.mac_form {
+
+}
+
+.wol_app {
+    z-index: 0;
+    margin-top: 13%;
+}
+
+#input {
+    font-family: 'Consolas', 'Monaco', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-weight: bold;
+}

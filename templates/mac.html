@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block body %}
-
-<form method="POST" action="/">
-    {{ form.hidden_tag() }}
-    {{ form.mac.label }} {{ form.mac(size=20) }}
-    <input type="submit" value="Go">
-</form>
+    <div class="center wol_app">
+        <h1>Wake on Lan</h1>
+        <form class="mac_form" method="POST" action="/">
+            {{ form.hidden_tag() }}
+            {{ form.mac(size=17, placeholder=form.mac.label.text, id="input") }}
+            <input type="submit" value="Go">
+        </form>
+    </div>
 {% endblock %}

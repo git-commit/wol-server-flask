@@ -27,7 +27,11 @@ def index():
             api_wake(mac)
             flash("Sent magic packet to: %s" % mac)
         else:
-            flash('Please provide a valid mac address. Example: %s ; Your input: %s' % (random.choice(valid_macs), mac))
+            if mac is '':
+                msg = 'Please enter a mac address.'
+            else:
+                msg = 'Please provide a valid mac address. Example: %s' % (random.choice(valid_macs))
+            flash(msg)
 
     return render_template('mac.html', form=form)
 
@@ -45,11 +49,11 @@ def favicon():
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
 
 class MacForm(Form):
-    mac = StringField('mac', validators=[InputRequired()])
+    mac = StringField('FF:FF:FF:FF:FF:FF', validators=[InputRequired()])
 
     def validate_mac(form, field):
         if not is_mac(field.data):
-            raise ValidationError("Please provide a valid mac address: %s" % field.data)
+            raise ValidationError("Invalid mac address")
 
 
 if __name__ == '__main__':
