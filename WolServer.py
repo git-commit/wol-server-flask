@@ -1,4 +1,4 @@
-
+#!/usr/bin/python
 
 import os
 from flask import Flask, render_template, send_from_directory, flash, request
@@ -16,6 +16,7 @@ valid_macs = ('FF-FF-FF-FF-FF-FF',  # windows
               'FF:FF:FF:FF:FF:FF',  # unix
               'FFFF.FFFF.FFFF',  # cisco
               'FFFFFFFFFFFF')  # bare
+
 
 @app.route('/', methods=('GET', 'POST'))
 def index():
@@ -47,6 +48,7 @@ def api_wake(mac):
 def favicon():
     return send_from_directory(os.path.join(app.root_path, 'static'),
                                'favicon.ico', mimetype='image/vnd.microsoft.icon')
+
 
 class MacForm(Form):
     mac = StringField('FF:FF:FF:FF:FF:FF', validators=[InputRequired()])
